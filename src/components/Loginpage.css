@@ -1,0 +1,25 @@
+@media (min-width: 1400px) {
+    .login {
+        max-width: 700px !important;
+        margin-top: 50px !important ;
+        margin: auto;
+        height: 350px;
+        padding: 40px 30px;
+        background-color: #E4F6E3 ;
+        border-radius: 10px;
+      
+    }
+  }
+  .btn-primary{
+    background-color: #004525 !important;
+    margin-top: 40px;
+  }
+  .btn-sm{
+    margin-top: 0px;
+  }
+  .password{
+    padding-top: 20px;
+  }
+  .signupblock{
+    margin-top: 20px;
+  }

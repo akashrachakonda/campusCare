@@ -1,0 +1,22 @@
+/* .bg-body-tertiary{
+    background-color: '#004525';
+} */
+.navbar-brand{
+    color: white;
+}
+  
+.float-list-item {
+    float: left;
+    margin-right: 10px; /* Add margin as needed */
+  }
+  .navbar-collapse{
+    flex-direction: row-reverse;
+    color: white;
+  }
+.navbar-brand,
+.nav-link
+{
+    color: white !important;
+}
+
+
