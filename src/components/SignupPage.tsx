@@ -5,11 +5,12 @@ import axios from "axios";
 
 const Signup = () => {
   const [user, setUser] = React.useState({
+    id: 0,
     fullname: "",
     email: "",
     password: "",
     phone: "",
-    role: "",
+    role: "student",
   });
 
   const navigate = useNavigate();
@@ -20,11 +21,13 @@ const Signup = () => {
   };
 
   const saveChanges = (e: any) => {
-    console.log("saveChanges");
+    console.log("saveChanges", user);
+    user.id = Math.floor(Math.random() * 100);
     e.preventDefault();
     axios
-      .post("http://localhost:5173/signup", user)
+      .post("http://localhost:3001/signup", user)
       .then((res) => {
+        console.log("res", res);
         navigate("/");
       })
       .catch((err) => console.log(err));
@@ -109,11 +112,11 @@ const Signup = () => {
             id="roleSelect"
             name="role"
             onChange={handleInput}
-            defaultValue="1"
+            defaultValue="Student"
             required
           >
-            <option value="1">Student</option>
-            <option value="2">Faculty</option>
+            <option value="Student">Student</option>
+            <option value="Faculty">Faculty</option>
           </select>
         </div>
 

@@ -16,14 +16,8 @@ const db=mysql.createConnection({
 
 db.connect();
 
-db.query("SELECT 1+1 AS SOLUTION", (err,res)=>{
-
-if(err) throw err;
-console.log(' The solution is ', res[0].SOLUTION);  
-})
-
-app.post("/signup",(req,res)=>{
-    const sql="INSERT INTO user_details(`id`,`name`,`email`,`password`,`phone`,`role`) VALUES(?)";
+app.post("/signup",async(req,res)=>{
+    const sql="INSERT INTO users_details(`id`, `name`, `email`, `password`, `phone`, `role`) VALUES(?)";
     const values=[
         req.body.id,
         req.body.fullname,
@@ -34,18 +28,13 @@ app.post("/signup",(req,res)=>{
     ];
     db.query(sql,[values],(err,data)=>{
         if(err){
-        return res.json("ERROR");
+        return res.json(err);
         }
         return res.json(data);
 
     })
 })
 
-
-
-// app.get('/',(req,res)=>{
-// return res.json(" From Backend side");
-// });
 
 app.listen(port,()=>{
     console.log(" Listening")
