@@ -1,7 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./SignupPage.css";
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import Validations from "./Validations";
 
 const Signup = () => {
   const [user, setUser] = React.useState({
@@ -9,11 +10,18 @@ const Signup = () => {
     fullname: "",
     email: "",
     password: "",
+    confirmPassword: "",
     phone: "",
     role: "student",
   });
 
   const navigate = useNavigate();
+
+  const [error, setError] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   const handleInput = (e: any) => {
     e.persist();
@@ -22,15 +30,22 @@ const Signup = () => {
 
   const saveChanges = (e: any) => {
     console.log("saveChanges", user);
-    user.id = Math.floor(Math.random() * 100);
+    user.id = Math.floor(Math.random() * 1000);
+
+    const newErrors = Validations(user);
+    console.log("newErrors", newErrors);
+
+    setError(newErrors);
+    if (!newErrors) {
+      axios
+        .post("http://localhost:3001/signup", user)
+        .then((res) => {
+          console.log("res", res);
+          navigate("/");
+        })
+        .catch((err) => console.log(err));
+    }
     e.preventDefault();
-    axios
-      .post("http://localhost:3001/signup", user)
-      .then((res) => {
-        console.log("res", res);
-        navigate("/");
-      })
-      .catch((err) => console.log(err));
   };
   return (
     <div className="container">
@@ -62,6 +77,7 @@ const Signup = () => {
             required
           />
         </div>
+        {error.email && <small style={{ color: "red" }}>{error.email}</small>}
         <div className="form-group">
           <label className="password" htmlFor="exampleInputPassword1">
             Password
@@ -76,11 +92,15 @@ const Signup = () => {
             required
           />
         </div>
+        {error.password && (
+          <small style={{ color: "red" }}>{error.password}</small>
+        )}
         <div className="form-group">
           <label className="confirmPassword" htmlFor="exampleInputPassword1">
             Confirm Password
           </label>
           <input
+            name="confirmPassword"
             type="password"
             className="form-control"
             id="password"
@@ -89,6 +109,9 @@ const Signup = () => {
             required
           />
         </div>
+        {error.confirmPassword && (
+          <small style={{ color: "red" }}>{error.confirmPassword}</small>
+        )}
         <div className="form-group">
           <label className="phoneNumber" htmlFor="phone">
             Phone number

@@ -1,8 +1,8 @@
 {
+  "type": "module",
   "name": "campuscare",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "axios": "^1.6.0",
+    "body-parser": "^1.20.2",
     "bootstrap": "^5.3.2",
+    "cookie-parser": "^1.4.6",
+    "express-session": "^1.17.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.17.0",

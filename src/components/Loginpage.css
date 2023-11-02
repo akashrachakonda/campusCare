@@ -3,7 +3,7 @@
         max-width: 700px !important;
         margin-top: 50px !important ;
         margin: auto;
-        height: 350px;
+        height: 370px;
         padding: 40px 30px;
         background-color: #E4F6E3 ;
         border-radius: 10px;
@@ -12,7 +12,7 @@
   }
   .btn-primary{
     background-color: #004525 !important;
-    margin-top: 40px;
+    margin-top: 10px;
   }
   .btn-sm{
     margin-top: 0px;
