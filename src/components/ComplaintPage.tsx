@@ -1,14 +1,91 @@
+import { useEffect, useState } from "react";
 import "./ComplaintPage.css";
+import axios from "axios";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 const Complaint = () => {
+  const [newComplaint, setNewComplaint] = useState(false);
+  const [preComplaints, setPreComplaints] = useState(false);
+  const [prevCompData, setPrevCompData] = useState([]);
+  const [details, setDetails] = useState({
+    id: "",
+    name: "",
+    email: "",
+    phone: "",
+    description: "",
+    status: "Pending",
+  });
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    const params = {
+      userId: localStorage.getItem("id") || "",
+    };
+
+    axios
+      .post("http://localhost:3001/complaintsList", params)
+      .then((res) => {
+        console.log("res---> ComplaintsList", res);
+        setPreComplaints(res.data.previousComplaints);
+        setPrevCompData(res.data.complaints);
+      })
+      .catch((err) => console.log(err));
+  }, [newComplaint]);
+
   const handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    details["id"] = localStorage.getItem("id") || "";
+
+    console.log("details-->", details);
+    axios
+      .post("http://localhost:3001/complaints", details)
+      .then((res) => {
+        console.log("res", res);
+        setNewComplaint(true);
+        // navigate("/");
+      })
+      .catch((err) => console.log(err));
+
     return alert("Your response has been submitted successfully. Thank you.");
   };
+
+  const handleInput = (e: any) => {
+    e.persist();
+    setDetails({ ...details, [e.target.name]: e.target.value });
+  };
+
+  const handlePrevComplaints = () => {
+    navigate(`/previousComplaint/${JSON.stringify(prevCompData)}`);
+  };
+
   return (
     <>
       <div style={{ float: "right", marginRight: "20px", marginTop: "20px" }}>
-        <button type="button" className="btn btn-primary btn-sm">
-          Small button
-        </button>
+        {preComplaints && (
+          <Link
+            type="button"
+            className={`btn btn-primary btn-sm ${
+              preComplaints ? "" : "disabled"
+            }`}
+            // disabled={!preComplaints}
+            onClick={handlePrevComplaints}
+            style={{ pointerEvents: preComplaints ? "auto" : "none" }}
+            to={"/previousComplaint"}
+            state={{ data: prevCompData }}
+          >
+            Previous Complaints
+          </Link>
+        )}
+        {/* <button
+          type="button"
+          className="btn btn-primary btn-sm"
+          data-toggle="tooltip"
+          data-placement="bottom"
+          title="No Previous Complaints..."
+        >
+          Previous Complaints
+        </button> */}
       </div>
       <div className="complaintPage">
         <h3 style={{ textAlign: "center" }}>Register a Complaint</h3>
@@ -24,7 +101,7 @@ const Complaint = () => {
               id="name"
               placeholder="Enter Name"
               required
-              //onChange={(e) => setEmail(e.target.value)}
+              onChange={handleInput}
             />
           </div>
           <div className="form-group">
@@ -39,7 +116,7 @@ const Complaint = () => {
               aria-describedby="emailHelp"
               placeholder="Enter email"
               required
-              //onChange={(e) => setEmail(e.target.value)}
+              onChange={handleInput}
             />
           </div>
           <div className="form-group">
@@ -53,7 +130,7 @@ const Complaint = () => {
               id="phone"
               placeholder="Enter Phone Number"
               required
-              //onChange={(e) => setEmail(e.target.value)}
+              onChange={handleInput}
             />
           </div>
           <div className="form-group">
@@ -67,6 +144,7 @@ const Complaint = () => {
               rows={10}
               placeholder="Enter Description"
               required
+              onChange={handleInput}
             ></textarea>
           </div>
           <button type="submit" className="btn btn-primary">

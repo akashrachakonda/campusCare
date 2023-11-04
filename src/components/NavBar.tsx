@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
@@ -12,6 +12,7 @@ const NavBar = () => {
   let value = localStorage.getItem("username");
 
   console.log("value-->", value);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setUsername(value || "");
@@ -20,13 +21,14 @@ const NavBar = () => {
 
   //let storedUsername = localStorage.getItem("username") || "";
   const handleLogout = () => {
-    console.log("handleLogout---->");
+    // console.log("handleLogout---->");
     localStorage.clear();
-    console.log(
-      "localStorage.getItem('username')",
-      localStorage.getItem("username")
-    );
+    // console.log(
+    //   "localStorage.getItem('username')",
+    //   localStorage.getItem("username")
+    // );
     setUsername(value || "");
+    navigate("/");
     location.reload();
   };
   return (

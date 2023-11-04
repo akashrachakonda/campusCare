@@ -27,6 +27,7 @@ const Login = () => {
         console.log("res--->", res);
         if (res.data.Login) {
           localStorage.setItem("username", res.data.username);
+          localStorage.setItem("id", res.data.id);
           navigate("/");
           location.reload();
         } else {

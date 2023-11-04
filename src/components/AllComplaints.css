@@ -1,0 +1,28 @@
+.thead-dark{
+    background-color: aqua !important;
+}
+.table{
+    max-width: 800px !important;
+    margin-top: 50px !important ;
+    margin: auto;
+    /* height: 730px; */
+    padding: 40px 30px;
+    background-color: #E4F6E3 ;
+    border-radius: 10px;
+    overflow: auto;
+
+}
+.tableLabel{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    font-family: Arial, sans-serif;
+    font-weight: bold; /* Make the text bold */
+    text-transform: uppercase;
+}
+.text-truncate{
+    max-width: 10px !important;
+}
+.btn-primary{
+    margin: 20px;
+}

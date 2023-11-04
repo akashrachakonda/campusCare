@@ -46,11 +46,27 @@ app.post("/login", async (req, res) => {
     }
     if (data.length > 0) {
         req.session.username=data[0].name;
+       // localStorage.setItem("id",data[0].id);
         //localStorage.setItem('username', req.session.username);
        // console.log(" req.session.username", req.session.username)
-      return res.json({ Login: true,username:req.session.username});
+      return res.json({ Login: true,username:req.session.username,id:data[0].id});
     } else {
       return res.json({ Login: false });
+    }
+  });
+});
+
+app.post("/complaintsList", async (req, res) => {
+  const sql = "SELECT * from complaints where id = ?";
+  db.query(sql, [req.body.userId], (err, data) => {
+    console.log("data--",data)
+    if (err) {
+      return res.json(err);
+    }
+    if (data.length > 0) {
+      return res.json({ previousComplaints: true,complaints:data});
+    } else {
+      return res.json({ previousComplaints: false });
     }
   });
 });
@@ -65,6 +81,26 @@ app.post("/signup", async (req, res) => {
     req.body.password,
     req.body.phone,
     req.body.role,
+  ];
+  db.query(sql, [values], (err, data) => {
+    if (err) {
+      return res.json(err);
+    }
+    return res.json(data);
+  });
+});
+
+
+app.post("/complaints", async (req, res) => {
+  const sql =
+    "INSERT INTO complaints(`name`,`email`,`phone`, `description`,`id`,`status`) VALUES(?)";
+  const values = [
+    req.body.name,
+    req.body.email,
+    req.body.phone,
+    req.body.description,
+    req.body.id,
+    req.body.status
   ];
   db.query(sql, [values], (err, data) => {
     if (err) {
