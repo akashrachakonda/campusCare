@@ -45,6 +45,7 @@ const Signup = () => {
         .post("http://localhost:3001/signup", user)
         .then((res) => {
           console.log("res", res);
+          alert("Registration completed successfully.");
           navigate("/");
         })
         .catch((err) => console.log(err));

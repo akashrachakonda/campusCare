@@ -11,7 +11,7 @@ const app = express();
 app.use(cookieParser());
 app.use(cors({
   origin:["http://localhost:5173"],
-  methods:["POST","GET"],
+  methods:["POST","GET","PUT"],
   credentials:true
 }));
 app.use(express.json());
@@ -40,16 +40,13 @@ db.connect();
 app.post("/login", async (req, res) => {
   const sql = "SELECT * from users_details where email = ? and password = ?";
   db.query(sql, [req.body.email, req.body.password], (err, data) => {
-    console.log("data--",data)
+    console.log("data--logindetails",data);
     if (err) {
       return res.json(err);
     }
     if (data.length > 0) {
         req.session.username=data[0].name;
-       // localStorage.setItem("id",data[0].id);
-        //localStorage.setItem('username', req.session.username);
-       // console.log(" req.session.username", req.session.username)
-      return res.json({ Login: true,username:req.session.username,id:data[0].id});
+      return res.json({ Login: true,username:req.session.username,id:data[0].id,password:data[0].password});
     } else {
       return res.json({ Login: false });
     }
@@ -67,6 +64,21 @@ app.post("/complaintsList", async (req, res) => {
       return res.json({ previousComplaints: true,complaints:data});
     } else {
       return res.json({ previousComplaints: false });
+    }
+  });
+});
+
+app.get("/allcomplaintsList", async (req, res) => {
+  const sql = "SELECT * from complaints";
+  db.query(sql, (err, data) => {
+    console.log("data--",data)
+    if (err) {
+      return res.json(err); 
+    }
+    if (data.length > 0) {
+      return res.json({ Complaints: true,complaintsData:data});
+    } else {
+      return res.json({ Complaints: false });
     }
   });
 });
@@ -93,14 +105,29 @@ app.post("/signup", async (req, res) => {
 
 app.post("/complaints", async (req, res) => {
   const sql =
-    "INSERT INTO complaints(`name`,`email`,`phone`, `description`,`id`,`status`) VALUES(?)";
+    "INSERT INTO complaints(`name`,`email`,`phone`, `description`,`id`,`status`,`complaintId`) VALUES(?)";
   const values = [
     req.body.name,
     req.body.email,
     req.body.phone,
     req.body.description,
     req.body.id,
-    req.body.status
+    req.body.status,
+    req.body.complaintId
+  ];
+  db.query(sql, [values], (err, data) => {
+    if (err) {
+      return res.json(err);
+    }
+    return res.json(data);
+  });
+});
+
+app.put("/update", async (req, res) => {
+  const sql =
+    "UPDATE complaints SET status='Addressed' WHERE complaintId=?";
+  const values = [
+    req.body.complaintId,
   ];
   db.query(sql, [values], (err, data) => {
     if (err) {

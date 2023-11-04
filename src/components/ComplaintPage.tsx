@@ -9,6 +9,7 @@ const Complaint = () => {
   const [prevCompData, setPrevCompData] = useState([]);
   const [details, setDetails] = useState({
     id: "",
+    complaintId: "",
     name: "",
     email: "",
     phone: "",
@@ -36,6 +37,7 @@ const Complaint = () => {
     e.preventDefault();
 
     details["id"] = localStorage.getItem("id") || "";
+    details["complaintId"] = Math.floor(Math.random() * 10000).toString();
 
     console.log("details-->", details);
     axios
@@ -77,15 +79,6 @@ const Complaint = () => {
             Previous Complaints
           </Link>
         )}
-        {/* <button
-          type="button"
-          className="btn btn-primary btn-sm"
-          data-toggle="tooltip"
-          data-placement="bottom"
-          title="No Previous Complaints..."
-        >
-          Previous Complaints
-        </button> */}
       </div>
       <div className="complaintPage">
         <h3 style={{ textAlign: "center" }}>Register a Complaint</h3>
