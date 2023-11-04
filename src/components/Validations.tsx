@@ -5,7 +5,7 @@ const Validations = (user: any) => {
     confirmPassword: "",
   };
   const email_pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-  const password_pattern = /^(?=.d) (?=.[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
+  const password_pattern = /^[A-Za-z0-9]{8,}$/;
 
   //   if (user.fullname === "") {
   //     errors.fullname = "Name should not be Empty...";

@@ -7,7 +7,13 @@ const bodyparser=require("body-parser");
 
 const port = 3001;
 const app = express();
-app.use(cors());
+
+app.use(cookieParser());
+app.use(cors({
+  origin:["http://localhost:5173"],
+  methods:["POST","GET"],
+  credentials:true
+}));
 app.use(express.json());
 app.use(bodyparser.json())
 app.use(session({
@@ -68,15 +74,6 @@ app.post("/signup", async (req, res) => {
   });
 });
 
-// app.get('/',(req,res)=>{
-//   //console.log("get---->",localStorage.getItem('username'))
-//     if(req.session.username){
-//       return res.json({valid:true})
-//     }
-//     else{
-//       return res.json({valid:false})
-//     }
-//   })
 
 app.listen(port, () => {
   console.log(" Listening");

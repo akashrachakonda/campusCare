@@ -27,10 +27,8 @@ const Login = () => {
         console.log("res--->", res);
         if (res.data.Login) {
           localStorage.setItem("username", res.data.username);
-
-          // Your component rendering and return statements
-
           navigate("/");
+          location.reload();
         } else {
           alert(
             "No matching record exists. Please verify your email and password."

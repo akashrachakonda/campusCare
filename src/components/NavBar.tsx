@@ -1,12 +1,34 @@
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 
 const CustomNavBar = styled.nav`
   color: white;
 `;
 
 const NavBar = () => {
+  const [username, setUsername] = useState("");
+  let value = localStorage.getItem("username");
+
+  console.log("value-->", value);
+
+  useEffect(() => {
+    setUsername(value || "");
+    console.log("username", username);
+  }, [value, username]);
+
+  //let storedUsername = localStorage.getItem("username") || "";
+  const handleLogout = () => {
+    console.log("handleLogout---->");
+    localStorage.clear();
+    console.log(
+      "localStorage.getItem('username')",
+      localStorage.getItem("username")
+    );
+    setUsername(value || "");
+    location.reload();
+  };
   return (
     <CustomNavBar
       className="navbar navbar-expand-lg"
@@ -24,17 +46,27 @@ const NavBar = () => {
                 Home
               </Link>
             </li>
-
-            <li className="nav-item float-list-item">
-              <Link to="/login" className="nav-link active">
-                Login
-              </Link>
-            </li>
-            <li className="nav-item float-list-item">
-              <Link to="/signup" className="nav-link active">
-                Signup
-              </Link>
-            </li>
+            {!username && (
+              <>
+                <li className="nav-item float-list-item">
+                  <Link to="/login" className="nav-link active">
+                    Login
+                  </Link>
+                </li>
+                <li className="nav-item float-list-item">
+                  <Link to="/signup" className="nav-link active">
+                    Signup
+                  </Link>
+                </li>
+              </>
+            )}
+            {username && (
+              <li className="nav-item float-list-item">
+                <Link to="/" className="nav-link active" onClick={handleLogout}>
+                  Logout
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

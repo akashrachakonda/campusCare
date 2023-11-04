@@ -36,7 +36,11 @@ const Signup = () => {
     console.log("newErrors", newErrors);
 
     setError(newErrors);
-    if (!newErrors) {
+    console.log("!newErrors", newErrors);
+    const allValuesAreEmpty = Object.values(newErrors).every(
+      (value) => value === ""
+    );
+    if (allValuesAreEmpty) {
       axios
         .post("http://localhost:3001/signup", user)
         .then((res) => {
