@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import { GoCheckCircleFill } from "react-icons/go";
 import { AiFillMinusCircle } from "react-icons/ai";
+import Modal from "react-modal";
+import ModalDetails from "./Modal";
 
 const Home = () => {
   const storedUsername = localStorage.getItem("username") || "";
@@ -47,6 +49,23 @@ const Home = () => {
     alert("Complaint Addressed. Thank you.");
     location.reload();
   };
+  const [data, setData] = useState({
+    name: "",
+    complaintId: "",
+    description: "",
+    email: "",
+    id: "",
+    phone: "",
+    status: "",
+  });
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = (data: any) => {
+    setData(data);
+    setShowModal(true);
+    console.log("data-->Homepage", data.name);
+  };
+
   return (
     <div className="container-fluid">
       {username && <h2 style={{ marginTop: "20px" }}> Welcome {username}</h2>}
@@ -91,7 +110,7 @@ const Home = () => {
             </thead>
             <tbody>
               {allComplaints?.map((data: any, index: number) => (
-                <tr key={index}>
+                <tr key={index} onClick={() => openModal(data)}>
                   <th scope="row">{index + 1}</th>
                   <td>{data.name}</td>
                   <td>{data.email}</td>
@@ -121,6 +140,11 @@ const Home = () => {
               ))}
             </tbody>
           </table>
+          <ModalDetails
+            data={data}
+            showModal={showModal}
+            setShowModal={setShowModal}
+          />
         </>
       )}
     </div>

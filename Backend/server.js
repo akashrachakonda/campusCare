@@ -7,7 +7,6 @@ const bodyparser=require("body-parser");
 
 const port = 3001;
 const app = express();
-
 app.use(cookieParser());
 app.use(cors({
   origin:["http://localhost:5173"],
@@ -65,7 +64,7 @@ app.post("/complaintsList", async (req, res) => {
     } else {
       return res.json({ previousComplaints: false });
     }
-  });
+  }); 
 });
 
 app.get("/allcomplaintsList", async (req, res) => {

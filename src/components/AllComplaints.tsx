@@ -1,9 +1,53 @@
+import { useState } from "react";
 import "./AllComplaints.css";
 import { Link, useLocation } from "react-router-dom";
+import Modal from "react-modal";
+import ModalDetails from "./Modal";
+
 const AllComplaints = () => {
   const location = useLocation();
   const prevCompData = location.state?.data;
-  console.log("Data--->", prevCompData);
+  const [data, setData] = useState({
+    name: "",
+    complaintId: "",
+    description: "",
+    email: "",
+    id: "",
+    phone: "",
+    status: "",
+  });
+
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = (data: any) => {
+    setData(data);
+    setShowModal(true);
+    console.log("data-->", data.name);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+  const appRootElement = document.getElementById("root");
+
+  if (appRootElement) {
+    Modal.setAppElement(appRootElement);
+  }
+  const modalStyles = {
+    content: {
+      width: "600px",
+      height: "300px",
+      margin: "auto",
+      borderRadius: "8px",
+      border: "none",
+      boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
+    },
+    overlay: {
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
+      zIndex: 1000,
+    },
+  };
+
   return (
     <>
       <Link type="button" className="btn btn-primary btn-sm " to={"/complaint"}>
@@ -23,7 +67,7 @@ const AllComplaints = () => {
         </thead>
         <tbody>
           {prevCompData.map((data: any, index: number) => (
-            <tr key={index}>
+            <tr key={index} onClick={() => openModal(data)}>
               <th scope="row">{index + 1}</th>
               <td>{data.name}</td>
               <td>{data.email}</td>
@@ -40,6 +84,12 @@ const AllComplaints = () => {
           ))}
         </tbody>
       </table>
+
+      <ModalDetails
+        data={data}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
     </>
   );
 };

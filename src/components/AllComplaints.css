@@ -17,7 +17,7 @@
     justify-content: center; 
     align-items: center; 
     font-family: Arial, sans-serif;
-    font-weight: bold; /* Make the text bold */
+    font-weight: bold;
     text-transform: uppercase;
 }
 .text-truncate{
@@ -26,3 +26,30 @@
 .btn-primary{
     margin: 20px;
 }
+
+.info-container {
+    background-color: #f0f0f0; 
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    border-radius: 5px; 
+    margin: 10px; 
+  }
+  
+  .info-item {
+    margin: 5px 0; 
+    font-size: 16px; 
+    color: #333;
+  }
+ 
+  .info-item:nth-child(2) {
+    font-weight: bold; 
+  }
+  .info-item:last-child{
+    font-weight: bold; 
+  }
+  .highlightGreen{
+    color:green;
+  }
+  .highlightRed{
+    color:red;
+  }
