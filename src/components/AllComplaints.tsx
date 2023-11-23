@@ -18,16 +18,18 @@ const AllComplaints = () => {
   });
 
   const [showModal, setShowModal] = useState(false);
+  const [isForm, setIsForm] = useState(false);
 
   const openModal = (data: any) => {
     setData(data);
     setShowModal(true);
+    setIsForm(false);
     console.log("data-->", data.name);
   };
 
-  const closeModal = () => {
-    setShowModal(false);
-  };
+  // const closeModal = () => {
+  //   setShowModal(false);
+  // };
   const appRootElement = document.getElementById("root");
 
   if (appRootElement) {
@@ -86,7 +88,9 @@ const AllComplaints = () => {
       </table>
 
       <ModalDetails
+        header="Complaint Details"
         data={data}
+        isForm={isForm}
         showModal={showModal}
         setShowModal={setShowModal}
       />

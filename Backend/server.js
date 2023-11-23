@@ -4,6 +4,8 @@ const cors=require("cors");
 const session= require("express-session");
 const cookieParser=require("cookie-parser");
 const bodyparser=require("body-parser");
+const nodemailer = require("nodemailer");
+// const fs = require('fs');
 
 const port = 3001;
 const app = express();
@@ -25,6 +27,42 @@ cookie:{
 }
 }));
 
+ const emailFunction = async (email,name,otp) => {
+
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    host: "smtp.gmail.net",
+    port: 587,
+    secure: false,
+    auth: {
+      user: "akashrachakonda1998@gmail.com",
+      pass: "odsj nqpb ibog qnpi",
+    },
+  });
+
+  const info = await transporter.sendMail({
+    from: '"CampusCare" akashrachakonda1998@gmail.com',
+    to: email || "akashrachakonda1998@gmail.com",
+    subject: "OTP For CampusCare Account Verification",
+    //text: "Hello Mr.Teja, this is regarding Campuscare email Verification.",
+    html: `
+    <div style="font-family: Arial, sans-serif; text-align: center;">
+      <p>Dear ${name},</p>
+      <p>Please enter this code to verify your email</p>
+      <h2 style="color: #4CAF50; font-size: 24px; margin: 10px 0;">${otp}</h2>
+      <p>If it wasn't you, Please ignore it or call CampusCare customer care.</p>
+      <br />
+      <p>Regards,</p>
+      <p>CampusCare Team</p>
+    </div>
+  `,
+  });
+
+  return  info.accepted;
+};
+
+//emailFunction().catch(console.error);
+
 const db = mysql.createConnection({
   host: "b7fkvgitknn65orrpbar-mysql.services.clever-cloud.com",
   user: "upolmgujqzbmeho4",
@@ -39,7 +77,7 @@ db.connect();
 app.post("/login", async (req, res) => {
   const sql = "SELECT * from users_details where email = ? and password = ?";
   db.query(sql, [req.body.email, req.body.password], (err, data) => {
-    console.log("data--logindetails",data);
+   // console.log("data--logindetails",data);
     if (err) {
       return res.json(err);
     }
@@ -83,6 +121,10 @@ app.get("/allcomplaintsList", async (req, res) => {
 });
 
 app.post("/signup", async (req, res) => {
+  // const otp=Math.floor(100000 + Math.random() * 900000);
+  const response= emailFunction(req.body.email,req.body.fullname,req.body.otp);
+  // fs.writeFileSync('otp.txt', otp);
+  console.log("response--->email",response)
   const sql =
     "INSERT INTO users_details(`id`, `name`, `email`, `password`, `phone`, `role`) VALUES(?)";
   const values = [

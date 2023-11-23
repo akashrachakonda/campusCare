@@ -1,3 +1,10 @@
 .btn-primary{
     background-color: #004525 !important;
+    margin-bottom: 0 !important;
+}
+.containerHome{
+    width: 70%;
+    background-color: #E4F6E3;
+    margin: 0 auto;
+    padding: 20px;
 }

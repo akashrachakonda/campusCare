@@ -10,7 +10,9 @@ const Validations = (user: any) => {
   //   if (user.fullname === "") {
   //     errors.fullname = "Name should not be Empty...";
   //   }
+  console.log("user.email", user.email);
   if (!email_pattern.test(user.email)) {
+    console.log("user.email", user.email);
     errors.email = "Email didn't meet the requirements";
   }
   //   if (user.password === "") {

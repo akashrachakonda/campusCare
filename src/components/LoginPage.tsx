@@ -79,7 +79,10 @@ const Login = () => {
 
         <div className="signupblock">
           <small className="mr-2">Don't have an account ?</small> &nbsp;
-          <button type="button" className="btn btn-primary btn-sm">
+          <button
+            type="button"
+            className="btn btn-primary btn-sm signup-button"
+          >
             <Link to="/signup" className="nav-link active" aria-current="page">
               Signup
             </Link>

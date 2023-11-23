@@ -3,10 +3,14 @@ import "./ComplaintPage.css";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import ModalDetails from "./Modal";
+
 const Complaint = () => {
   const [newComplaint, setNewComplaint] = useState(false);
   const [preComplaints, setPreComplaints] = useState(false);
   const [prevCompData, setPrevCompData] = useState([]);
+  const [message, setMessage] = useState("");
+  const [showModal, setShowModal] = useState(false);
   const [details, setDetails] = useState({
     id: "",
     complaintId: "",
@@ -16,6 +20,7 @@ const Complaint = () => {
     description: "",
     status: "Pending",
   });
+  const [isForm, setIsForm] = useState(false);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -44,12 +49,15 @@ const Complaint = () => {
       .post("http://localhost:3001/complaints", details)
       .then((res) => {
         console.log("res", res);
+        setMessage("Your response has been submitted successfully. Thank you.");
+        setShowModal(true);
+        setIsForm(true);
         setNewComplaint(true);
         // navigate("/");
       })
       .catch((err) => console.log(err));
 
-    return alert("Your response has been submitted successfully. Thank you.");
+    // return alert("Your response has been submitted successfully. Thank you.");
   };
 
   const handleInput = (e: any) => {
@@ -144,6 +152,13 @@ const Complaint = () => {
             Submit Complaint
           </button>
         </form>
+        <ModalDetails
+          header="Complaint Form"
+          data={message}
+          isForm={isForm}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
       </div>
     </>
   );

@@ -3,8 +3,12 @@ import "./SignupPage.css";
 import React, { useState } from "react";
 import axios from "axios";
 import Validations from "./Validations";
+import ModalDetails from "./Modal";
 
 const Signup = () => {
+  const [message, setMessage] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [isForm, setIsForm] = useState(false);
   const [user, setUser] = React.useState({
     id: 0,
     fullname: "",
@@ -12,6 +16,7 @@ const Signup = () => {
     password: "",
     confirmPassword: "",
     phone: "",
+    otp: 0,
     role: "student",
   });
 
@@ -31,7 +36,8 @@ const Signup = () => {
   const saveChanges = (e: any) => {
     console.log("saveChanges", user);
     user.id = Math.floor(Math.random() * 1000);
-
+    user.otp = Math.floor(100000 + Math.random() * 900000);
+    localStorage.setItem("otp", user.otp.toString());
     const newErrors = Validations(user);
     console.log("newErrors", newErrors);
 
@@ -45,8 +51,11 @@ const Signup = () => {
         .post("http://localhost:3001/signup", user)
         .then((res) => {
           console.log("res", res);
-          alert("Registration completed successfully.");
-          navigate("/");
+          setMessage("Registration completed successfully.");
+          setShowModal(true);
+          setIsForm(true);
+          // alert("Registration completed successfully.");
+          //navigate("/");
         })
         .catch((err) => console.log(err));
     }
@@ -154,13 +163,23 @@ const Signup = () => {
 
         <div className="signupblock">
           <small className="mr-2">Already have an account ?</small> &nbsp;
-          <button type="button" className="btn btn-primary btn-sm">
+          <button type="button" className="btn btn-primary btn-sm login-button">
             <Link to="/login" className="nav-link active" aria-current="page">
               Login
             </Link>
           </button>
         </div>
       </form>
+      {showModal && (
+        <ModalDetails
+          isSignupForm={true}
+          header="Registrartion Form Response"
+          data={message}
+          isForm={isForm}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
+      )}
     </div>
   );
 };

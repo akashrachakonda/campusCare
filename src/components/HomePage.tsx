@@ -13,6 +13,7 @@ const Home = () => {
   const [username, setUsername] = useState("");
   const [pass, setPass] = useState("");
   const [allComplaints, setAllComplaints] = useState([]);
+  const [isForm, setIsForm] = useState(false);
   useEffect(() => {
     setUsername(storedUsername || "");
     setPass(password || "");
@@ -63,15 +64,18 @@ const Home = () => {
   const openModal = (data: any) => {
     setData(data);
     setShowModal(true);
-    console.log("data-->Homepage", data.name);
   };
 
   return (
     <div className="container-fluid">
-      {username && <h2 style={{ marginTop: "20px" }}> Welcome {username}</h2>}
+      {username && (
+        <h2 style={{ marginTop: "20px", textAlign: "center" }}>
+          Welcome {username}
+        </h2>
+      )}
       <br />
       {username != "Admin" && pass != "Unccadmin2023" && (
-        <>
+        <div className="containerHome">
           <h3 className="text-justify">
             CampusCare is a dynamic and user-friendly website designed to
             address and resolve student concerns effectively within our college
@@ -89,11 +93,11 @@ const Home = () => {
 
           <br />
           {!username && (
-            <small style={{ color: "red" }}>
+            <small style={{ color: "red", paddingLeft: "25px" }}>
               Login to register a complaint...
             </small>
           )}
-        </>
+        </div>
       )}
       {username === "Admin" && pass === "Unccadmin2023" && (
         <>
@@ -128,7 +132,7 @@ const Home = () => {
                     )}
                     {data.status === "Pending" && (
                       <>
-                        <>|</>
+                        <> | </>
                         <GoCheckCircleFill
                           style={{ color: "green" }}
                           onClick={() => addressComplaint(data.complaintId)}
@@ -141,7 +145,9 @@ const Home = () => {
             </tbody>
           </table>
           <ModalDetails
+            header="Complaint Details"
             data={data}
+            isForm={isForm}
             showModal={showModal}
             setShowModal={setShowModal}
           />

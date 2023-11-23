@@ -1,0 +1,29 @@
+.formData > div{
+   
+    display: block !important;
+    text-align: center;
+    background-color: #E4F6E3;
+    height: 150px;
+    padding-top: 35px;
+    border-radius: 10px;
+}
+.formData > div > input{
+    font-size: 30px;
+}
+.formData-lable{
+    text-align: center;
+}
+.otp-button{
+    margin-top: 10px !important;
+    margin-left: 230px  !important;
+}
+.formDataPlain{
+    background-color: #E4F6E3;
+    width: 500px;
+    height: 200px;
+    margin: 0 auto;
+    padding-top:50px;
+    padding-left: 20px;
+    border-radius: 10px;
+    text-align: center;
+}

@@ -20,6 +20,6 @@
   .password{
     padding-top: 20px;
   }
-  .signupblock{
-    margin-top: 20px;
+  .signup-button{
+    margin: 0 !important;
   }
