@@ -1,0 +1,22 @@
+.navbar-light{
+  position: fixed !important;
+  bottom: 0;
+  width: 100%;
+  height: 7%;
+  background-color: #004525 !important;
+}
+.navli{
+    padding-left: 30px;
+    
+}
+.navli2 > a > svg{
+    width: 2em !important; 
+    height: 2em !important;
+}
+#contact{
+    color: white;
+    font-size: 20px;
+}
+.navli2 > a {
+    padding-right: 20px;
+}

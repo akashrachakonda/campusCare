@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./AllComplaints.css";
 import { Link, useLocation } from "react-router-dom";
 import Modal from "react-modal";
-import ModalDetails from "./Modal";
+import ModalDetails from "../Modal/Modal";
 
 const AllComplaints = () => {
   const location = useLocation();
@@ -88,6 +88,8 @@ const AllComplaints = () => {
       </table>
 
       <ModalDetails
+        isSignupForm={false}
+        isComplaintDetails={true}
         header="Complaint Details"
         data={data}
         isForm={isForm}

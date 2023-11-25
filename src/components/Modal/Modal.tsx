@@ -4,19 +4,24 @@ import "./Modal.css";
 import OtpInput from "react-otp-input";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { IoMdMail } from "react-icons/io";
+import { FaFacebook, FaTwitter, FaInstagramSquare } from "react-icons/fa";
 
 const ModalDetails = (props: {
+  isComplaintDetails?: boolean;
   isSignupForm?: boolean;
   header: string;
   isForm: boolean;
   data: any;
   showModal: boolean;
+  mailId?: string;
   setShowModal: (showModal: boolean) => void;
 }) => {
   const navigate = useNavigate();
   const [otp, setOtp] = useState("");
   const [verified, setVerified] = useState(false);
   const [otpError, setOtpError] = useState(false);
+  const [spinner, setSpinner] = useState(false);
   console.log("props.isSignupForm ", props.isSignupForm);
   const closeModal = () => {
     props.setShowModal(false);
@@ -26,10 +31,11 @@ const ModalDetails = (props: {
   if (appRootElement) {
     Modal.setAppElement(appRootElement);
   }
+  console.log("isSignupForm--->", props.isSignupForm);
   const modalStyles = {
     content: {
       width: "600px",
-      height: "300px",
+      height: props.isSignupForm ? `550px` : `300px `,
       margin: "auto",
       borderRadius: "8px",
       border: "none",
@@ -60,15 +66,24 @@ const ModalDetails = (props: {
     if (storedOtpString != null) {
       const otpSent: number = parseInt(storedOtpString, 10);
       console.log("otpSent--->", otpSent);
-      if (otpSent === parseInt(otp)) {
-        setVerified(true);
+      setSpinner(true);
+      setTimeout(function () {
+        setSpinner(false);
+        if (otpSent === parseInt(otp)) {
+          setVerified(true);
+          localStorage.setItem("verifiedOTP", "true");
+          setOtpError(false);
+          console.log("otp--success");
+        } else {
+          setOtpError(true);
+        }
+      }, 3000);
+      setTimeout(() => {
         setOtpError(false);
-        console.log("otp--success");
-      } else {
-        setOtpError(true);
-      }
+      }, 8000);
     }
   };
+  console.log("props.data", props.data);
   return (
     <>
       <Modal isOpen={props.showModal} style={modalStyles}>
@@ -91,7 +106,22 @@ const ModalDetails = (props: {
           <>
             {props.isSignupForm ? (
               <>
-                <h4 className="formData-lable">{"Enter Verification Code"}</h4>
+                <div className="mailIcon">
+                  <IoMdMail />
+                </div>
+                <h4 className="formData-lable">
+                  {"VERIFY YOUR EMAIL ADDRESS"}
+                </h4>
+                <hr />
+                <p className="otpBody">
+                  {" "}
+                  A verification code has been sent to your email.
+                </p>
+                <p className="otpBody2">
+                  Please check your inbox and enter the verification code below
+                  to verify your email address.
+                </p>
+                <b></b>
                 <div className="formData">
                   <OtpInput
                     value={otp}
@@ -112,15 +142,22 @@ const ModalDetails = (props: {
                     className="btn btn-primary otp-button"
                     onClick={() => onEnterOTP()}
                   >
-                    Verify OTP
+                    Verify Code
                   </button>
+                  {spinner && (
+                    <div className="d-flex justify-content-center">
+                      <div className="spinner-border" role="status">
+                        {/* <span className="sr-only">Loading...</span> */}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </>
             ) : (
               <h4 className="formDataPlain">{props.data}</h4>
             )}
           </>
-        ) : (
+        ) : props.isComplaintDetails ? (
           <div className="info-container">
             <h5 className="info-item">Name: {props.data.name}</h5>
             <h5 className="info-item">Email: {props.data.email}</h5>
@@ -136,6 +173,22 @@ const ModalDetails = (props: {
               Status: {props.data.status}
             </h5>
           </div>
+        ) : (
+          <>
+            <div className="info-container" id="contactform">
+              <h5>
+                <b>campucareuncc@gmail.com</b>
+              </h5>
+              <h5>
+                <b>+1 (987)-654-3210</b>
+              </h5>
+            </div>
+            <h5 className="icons">
+              <FaFacebook className="icon" />
+              <FaTwitter className="icon" />
+              <FaInstagramSquare className="icon" />
+            </h5>
+          </>
         )}
       </Modal>
       <Modal isOpen={verified} style={modalStyles2}>
@@ -145,7 +198,9 @@ const ModalDetails = (props: {
         <button
           type="button"
           className="btn btn-primary otp-button"
-          onClick={() => navigate("/login")}
+          onClick={() => {
+            navigate("/login");
+          }}
           style={{ fontSize: "20px", marginLeft: "150px" }}
         >
           OK

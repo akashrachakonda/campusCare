@@ -3,7 +3,7 @@ import "./ComplaintPage.css";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import ModalDetails from "./Modal";
+import ModalDetails from "../Modal/Modal";
 
 const Complaint = () => {
   const [newComplaint, setNewComplaint] = useState(false);
@@ -142,7 +142,7 @@ const Complaint = () => {
               name="description"
               className="form-control"
               id="description"
-              rows={10}
+              rows={8}
               placeholder="Enter Description"
               required
               onChange={handleInput}
@@ -153,6 +153,7 @@ const Complaint = () => {
           </button>
         </form>
         <ModalDetails
+          isSignupForm={false}
           header="Complaint Form"
           data={message}
           isForm={isForm}

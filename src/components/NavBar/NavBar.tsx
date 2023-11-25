@@ -19,14 +19,8 @@ const NavBar = () => {
     console.log("username", username);
   }, [value, username]);
 
-  //let storedUsername = localStorage.getItem("username") || "";
   const handleLogout = () => {
-    // console.log("handleLogout---->");
     localStorage.clear();
-    // console.log(
-    //   "localStorage.getItem('username')",
-    //   localStorage.getItem("username")
-    // );
     setUsername(value || "");
     navigate("/");
     location.reload();

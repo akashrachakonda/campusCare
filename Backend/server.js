@@ -121,10 +121,8 @@ app.get("/allcomplaintsList", async (req, res) => {
 });
 
 app.post("/signup", async (req, res) => {
-  // const otp=Math.floor(100000 + Math.random() * 900000);
-  const response= emailFunction(req.body.email,req.body.fullname,req.body.otp);
-  // fs.writeFileSync('otp.txt', otp);
-  console.log("response--->email",response)
+ emailFunction(req.body.email,req.body.fullname,req.body.otp);
+
   const sql =
     "INSERT INTO users_details(`id`, `name`, `email`, `password`, `phone`, `role`) VALUES(?)";
   const values = [
@@ -136,6 +134,7 @@ app.post("/signup", async (req, res) => {
     req.body.role,
   ];
   db.query(sql, [values], (err, data) => {
+    console.log("data-->",data)
     if (err) {
       return res.json(err);
     }

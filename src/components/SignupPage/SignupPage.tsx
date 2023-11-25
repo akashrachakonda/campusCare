@@ -2,13 +2,14 @@ import { Link, useNavigate } from "react-router-dom";
 import "./SignupPage.css";
 import React, { useState } from "react";
 import axios from "axios";
-import Validations from "./Validations";
-import ModalDetails from "./Modal";
+import Validations from "../Validations";
+import ModalDetails from "../Modal/Modal";
 
 const Signup = () => {
   const [message, setMessage] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [isForm, setIsForm] = useState(false);
+  const [email, setEmail] = useState("");
   const [user, setUser] = React.useState({
     id: 0,
     fullname: "",
@@ -37,7 +38,9 @@ const Signup = () => {
     console.log("saveChanges", user);
     user.id = Math.floor(Math.random() * 1000);
     user.otp = Math.floor(100000 + Math.random() * 900000);
+
     localStorage.setItem("otp", user.otp.toString());
+
     const newErrors = Validations(user);
     console.log("newErrors", newErrors);
 
@@ -51,6 +54,7 @@ const Signup = () => {
         .post("http://localhost:3001/signup", user)
         .then((res) => {
           console.log("res", res);
+          console.log("res--->", res.data);
           setMessage("Registration completed successfully.");
           setShowModal(true);
           setIsForm(true);

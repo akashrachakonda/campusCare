@@ -1,0 +1,62 @@
+.formData > div{
+   
+    display: block !important;
+    text-align: center;
+    background-color: #E4F6E3;
+    height: 150px;
+    padding-top: 35px;
+    border-radius: 10px;
+}
+.formData > div > input{
+    font-size: 30px;
+}
+.formData-lable{
+    text-align: center;
+    font-size: 20px;
+}
+.otp-button{
+    margin-top: 10px !important;
+    text-align: center;
+    /* margin-left: 230px  !important; */
+    width: 100%;
+    margin: 0 !important;
+    
+}
+.formDataPlain{
+    background-color: #E4F6E3;
+    width: 500px;
+    height: 200px;
+    margin: 0 auto;
+    padding-top:50px;
+    padding-left: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.mailIcon{
+    margin-left: 250px;
+}
+.mailIcon > svg{
+    height: 2em !important;
+    width: 2em !important;
+}
+.otpBody{
+    text-align: center;
+}
+.otpBody2{
+    text-align: center;
+}
+.justify-content-center{
+    background-color: white !important;
+}
+.icons{
+    display: flex;
+    margin-left: 10px;  
+    margin-top: 60px;
+}
+.icon{
+    margin-right: 20px;
+}   
+#contactform{
+    height: 50%;
+    text-align: center;
+}
