@@ -2,21 +2,23 @@
 CampusCare is a dynamic and user-friendly website designed to address and resolve student concerns effectively within our college community.
 
 
-<img width="775" alt="Screenshot 2023-11-25 at 6 26 00 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/12696843-93f5-428e-bac3-3f7ee468983f">
-<img width="775" alt="Screenshot 2023-11-25 at 6 27 06 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/5f8ee02b-a7eb-48c7-a521-991bb91d635e">
-<img width="775" alt="Screenshot 2023-11-25 at 6 27 19 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/444886ac-6d74-4fa2-b79b-10e0970c3fc8">
-<img width="775" alt="Screenshot 2023-11-25 at 6 27 30 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/c11b1352-2c05-4c2e-bc9c-3e637c48cb02">
-<img width="775" alt="Screenshot 2023-11-25 at 6 28 30 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/bb9e1169-dbc5-4feb-b321-8c1bb37d29ed">
-<img width="1157" alt="Screenshot 2023-11-25 at 6 29 17 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/c0ae6ba2-041f-44a8-91cb-ae7ad3b5ccd7">
-<img width="748" alt="Screenshot 2023-11-25 at 7 07 17 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/6a443897-0783-4991-adb8-e951e8a31a59">
-<img width="748" alt="Screenshot 2023-11-25 at 6 30 31 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/63378202-a316-410a-b771-ab22a7f75907">
-<img width="748" alt="Screenshot 2023-11-25 at 6 30 41 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/dae44452-21c8-457c-9633-4c0ebe0d92ce">
-<img width="748" alt="Screenshot 2023-11-25 at 6 30 48 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/ef975b08-4869-4cad-9a30-0a5d542d94b3">
-<img width="748" alt="Screenshot 2023-11-25 at 6 32 49 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/370b7e02-d8e9-43e0-9ffc-e379b247d6dd">
-<img width="748" alt="Screenshot 2023-11-25 at 6 32 59 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/f4c1ad62-66e0-4582-9244-81793c109301">
-<img width="748" alt="Screenshot 2023-11-25 at 6 40 03 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/fcf153ab-7667-4de1-9e42-9e41fa165983">
-<img width="748" alt="Screenshot 2023-11-25 at 6 41 13 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/25664727-3d31-45f6-bfe1-3ff786d4ca59">
-<img width="748" alt="Screenshot 2023-11-25 at 6 41 25 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/915796dc-dcb7-494d-9ca6-7cf699394847">
-<img width="748" alt="Screenshot 2023-11-25 at 6 41 30 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/8bacebab-b06e-47fc-bc3b-2619036a4854">
-<img width="748" alt="Screenshot 2023-11-25 at 6 41 45 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/b4840ba1-a027-43b6-8959-c996749a268c">
-<img width="1144" alt="Screenshot 2023-11-25 at 9 14 07 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/07338a12-9f94-42bc-a55b-8f5810344551">
+
+
+<img width="1470" alt="Screenshot 2023-11-26 at 3 33 55 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/a89716bb-b3d2-4249-8f09-55ac32626da5">
+<img width="1470" alt="Screenshot 2023-11-26 at 3 34 05 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/96c8e018-70f6-4d38-a17c-ff5c87130a7f">
+<img width="1470" alt="Screenshot 2023-11-26 at 3 34 37 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/32c7e685-e8b7-4505-aafa-a1cc853f47c2">
+<img width="1470" alt="Screenshot 2023-11-26 at 3 34 41 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/f9d1908d-fda7-436d-8656-e1de45388a2d">
+<img width="1470" alt="Screenshot 2023-11-26 at 3 35 25 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/f64cf826-9f2e-4235-ab23-c759f80af8ea">
+<img width="1144" alt="Screenshot 2023-11-26 at 3 36 11 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/678d6d6e-2d0b-4b2b-b0d4-cbd8486d866f">
+<img width="1470" alt="Screenshot 2023-11-26 at 3 36 51 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/ddc22abb-f7fd-4ded-a02c-07247c5922c6">
+<img width="1470" alt="Screenshot 2023-11-26 at 3 37 32 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/f6096822-b817-415c-af32-ac3d85796a72">
+<img width="1470" alt="Screenshot 2023-11-26 at 3 37 37 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/7cdc086e-4fe5-429b-8002-f1e8b7463b78">
+<img width="1470" alt="Screenshot 2023-11-26 at 3 37 45 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/36ebb934-126d-48cb-a136-c6a5ae4584d1">
+<img width="1470" alt="Screenshot 2023-11-26 at 3 37 49 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/fe021b78-8d28-4d14-b8af-5ca284518509">
+<img width="1470" alt="Screenshot 2023-11-26 at 3 39 06 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/635090c9-cf12-47fe-b739-ceef39f3c743">
+<img width="1470" alt="Screenshot 2023-11-26 at 3 39 11 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/5418ea48-3007-44ea-a4b4-7b6198f677ec">
+<img width="1470" alt="Screenshot 2023-11-26 at 3 39 18 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/07a86173-8226-49a4-8fc3-c6bd328f6e93">
+<img width="1470" alt="Screenshot 2023-11-26 at 3 39 22 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/36cf4d49-7876-4a94-8cc0-f175df33713d">
+<img width="1470" alt="Screenshot 2023-11-26 at 3 39 45 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/7ba8c788-dc65-4c09-8468-fbdd94d98644">
+<img width="1470" alt="Screenshot 2023-11-26 at 3 39 55 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/ba9e3bb0-e904-4ac2-a669-a8111fbb4886">
+<img width="1141" alt="Screenshot 2023-11-26 at 3 40 24 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/4f12f01d-a2bb-4bdf-8d5a-e4b08ee6e567">
