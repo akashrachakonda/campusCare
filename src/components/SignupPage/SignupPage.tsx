@@ -58,8 +58,6 @@ const Signup = () => {
           setMessage("Registration completed successfully.");
           setShowModal(true);
           setIsForm(true);
-          // alert("Registration completed successfully.");
-          //navigate("/");
         })
         .catch((err) => console.log(err));
     }

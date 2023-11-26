@@ -4,7 +4,6 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import { GoCheckCircleFill } from "react-icons/go";
 import { AiFillMinusCircle } from "react-icons/ai";
-import Modal from "react-modal";
 import ModalDetails from "../Modal/Modal";
 
 const Home = () => {
@@ -145,6 +144,8 @@ const Home = () => {
             </tbody>
           </table>
           <ModalDetails
+            isSignupForm={false}
+            isComplaintDetails={true}
             header="Complaint Details"
             data={data}
             isForm={isForm}

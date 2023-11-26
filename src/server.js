@@ -1,11 +1,11 @@
-const express = require("express");
-const mysql=require("mysql");
-const cors=require("cors");
-const session= require("express-session");
-const cookieParser=require("cookie-parser");
-const bodyparser=require("body-parser");
-const nodemailer = require("nodemailer");
-// const fs = require('fs');
+import express from "express";
+import mysql from "mysql";
+import cors from "cors";
+import session from "express-session";
+import cookieParser from "cookie-parser";
+import bodyparser from "body-parser";
+import nodemailer from "nodemailer";
+
 
 const port = 3001;
 const app = express();
@@ -27,7 +27,7 @@ cookie:{
 }
 }));
 
- const emailFunction = async (email,name,otp) => {
+  const emailFunction = async (email,name,otp) => {
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -181,3 +181,5 @@ app.put("/update", async (req, res) => {
 app.listen(port, () => {
   console.log(" Listening");
 });
+
+export { emailFunction };
