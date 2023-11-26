@@ -36,10 +36,18 @@ const Home = () => {
     navigate("/complaint");
   };
 
-  const addressComplaint = (complaintId: number) => {
+  const addressComplaint = (
+    complaintId: number,
+    email: string,
+    name: string,
+    description: string
+  ) => {
     axios
       .put("http://localhost:3001/update", {
         complaintId: complaintId,
+        email: email,
+        name: name,
+        description: description,
       })
       .then((res) => {
         console.log("Update --admin", res);
@@ -134,7 +142,14 @@ const Home = () => {
                         <> | </>
                         <GoCheckCircleFill
                           style={{ color: "green" }}
-                          onClick={() => addressComplaint(data.complaintId)}
+                          onClick={() =>
+                            addressComplaint(
+                              data.complaintId,
+                              data.email,
+                              data.name,
+                              data.description
+                            )
+                          }
                         />
                       </>
                     )}

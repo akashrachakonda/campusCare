@@ -27,18 +27,19 @@ cookie:{
 }
 }));
 
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  host: "smtp.gmail.net",
+  port: 587,
+  secure: false,
+  auth: {
+    user: "akashrachakonda1998@gmail.com",
+    pass: "odsj nqpb ibog qnpi",
+  },
+});
+
   const emailFunction = async (email,name,otp) => {
 
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    host: "smtp.gmail.net",
-    port: 587,
-    secure: false,
-    auth: {
-      user: "akashrachakonda1998@gmail.com",
-      pass: "odsj nqpb ibog qnpi",
-    },
-  });
 
   const info = await transporter.sendMail({
     from: '"CampusCare" akashrachakonda1998@gmail.com',
@@ -60,6 +61,29 @@ cookie:{
 
   return  info.accepted;
 };
+
+const complaintAddresedinfo = async (email,name,description) => {
+const info = await transporter.sendMail({
+  from: '"CampusCare" akashrachakonda1998@gmail.com',
+  to: email || "akashrachakonda1998@gmail.com",
+  subject: "Complaint Addressed - CampuCare",
+  //text: "Hello Mr.Teja, this is regarding Campuscare email Verification.",
+  html: `
+  <div style="font-family: Arial, sans-serif; text-align: center;">
+    <p>Dear ${name},</p>
+    <p>The concern you raised has been resolved.</p>
+    <h2 style="color: red; font-size: 24px; margin: 10px 0;">Description : ${description}</h2>
+    <p>If it wasn't raised by you, Please call CampusCare customer service.</p>
+    <br />
+    <p>Regards,</p>
+    <p>CampusCare Team</p>
+  </div>
+`,
+});
+return info.accepted;
+}
+
+
 
 //emailFunction().catch(console.error);
 
@@ -164,6 +188,7 @@ app.post("/complaints", async (req, res) => {
 });
 
 app.put("/update", async (req, res) => {
+  complaintAddresedinfo(req.body.email,req.body.name,req.body.description);
   const sql =
     "UPDATE complaints SET status='Addressed' WHERE complaintId=?";
   const values = [
