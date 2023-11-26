@@ -24,7 +24,6 @@ const AllComplaints = () => {
     setData(data);
     setShowModal(true);
     setIsForm(false);
-    console.log("data-->", data.name);
   };
 
   // const closeModal = () => {
@@ -55,7 +54,7 @@ const AllComplaints = () => {
       <Link type="button" className="btn btn-primary btn-sm " to={"/complaint"}>
         Back
       </Link>
-      <h3 className="tableLabel">Previous Complaints list</h3>
+      <h3 className="tableLabel">Previous Complaints/Feedbacks list</h3>
       <table className="table table-hover">
         <thead className="thead-dark">
           <tr>
@@ -69,7 +68,11 @@ const AllComplaints = () => {
         </thead>
         <tbody>
           {prevCompData.map((data: any, index: number) => (
-            <tr key={index} onClick={() => openModal(data)}>
+            <tr
+              key={index}
+              onClick={() => openModal(data)}
+              style={{ cursor: "pointer" }}
+            >
               <th scope="row">{index + 1}</th>
               <td>{data.name}</td>
               <td>{data.email}</td>
@@ -90,7 +93,7 @@ const AllComplaints = () => {
       <ModalDetails
         isSignupForm={false}
         isComplaintDetails={true}
-        header="Complaint Details"
+        header="Complaint / Feedback Details"
         data={data}
         isForm={isForm}
         showModal={showModal}

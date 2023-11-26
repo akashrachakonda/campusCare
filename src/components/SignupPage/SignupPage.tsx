@@ -35,17 +35,15 @@ const Signup = () => {
   };
 
   const saveChanges = (e: any) => {
-    console.log("saveChanges", user);
     user.id = Math.floor(Math.random() * 1000);
     user.otp = Math.floor(100000 + Math.random() * 900000);
 
     localStorage.setItem("otp", user.otp.toString());
 
     const newErrors = Validations(user);
-    console.log("newErrors", newErrors);
 
     setError(newErrors);
-    console.log("!newErrors", newErrors);
+
     const allValuesAreEmpty = Object.values(newErrors).every(
       (value) => value === ""
     );
@@ -53,8 +51,6 @@ const Signup = () => {
       axios
         .post("http://localhost:3001/signup", user)
         .then((res) => {
-          console.log("res", res);
-          console.log("res--->", res.data);
           setMessage("Registration completed successfully.");
           setShowModal(true);
           setIsForm(true);

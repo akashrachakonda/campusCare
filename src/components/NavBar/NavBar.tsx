@@ -11,12 +11,10 @@ const NavBar = () => {
   const [username, setUsername] = useState("");
   let value = localStorage.getItem("username");
 
-  console.log("value-->", value);
   const navigate = useNavigate();
 
   useEffect(() => {
     setUsername(value || "");
-    console.log("username", username);
   }, [value, username]);
 
   const handleLogout = () => {

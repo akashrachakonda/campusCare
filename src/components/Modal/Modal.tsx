@@ -22,7 +22,6 @@ const ModalDetails = (props: {
   const [verified, setVerified] = useState(false);
   const [otpError, setOtpError] = useState(false);
   const [spinner, setSpinner] = useState(false);
-  console.log("props.isSignupForm ", props.isSignupForm);
   const closeModal = () => {
     props.setShowModal(false);
   };
@@ -31,7 +30,6 @@ const ModalDetails = (props: {
   if (appRootElement) {
     Modal.setAppElement(appRootElement);
   }
-  console.log("isSignupForm--->", props.isSignupForm);
   const modalStyles = {
     content: {
       width: "600px",
@@ -49,7 +47,7 @@ const ModalDetails = (props: {
   const modalStyles2 = {
     content: {
       width: "600px",
-      height: "300px",
+      height: "320px",
       margin: "auto",
       borderRadius: "8px",
       border: "none",
@@ -65,7 +63,6 @@ const ModalDetails = (props: {
     const storedOtpString: string | null = localStorage.getItem("otp");
     if (storedOtpString != null) {
       const otpSent: number = parseInt(storedOtpString, 10);
-      console.log("otpSent--->", otpSent);
       setSpinner(true);
       setTimeout(function () {
         setSpinner(false);
@@ -73,7 +70,6 @@ const ModalDetails = (props: {
           setVerified(true);
           localStorage.setItem("verifiedOTP", "true");
           setOtpError(false);
-          console.log("otp--success");
         } else {
           setOtpError(true);
         }
@@ -83,7 +79,7 @@ const ModalDetails = (props: {
       }, 8000);
     }
   };
-  console.log("props.data", props.data);
+
   return (
     <>
       <Modal isOpen={props.showModal} style={modalStyles}>

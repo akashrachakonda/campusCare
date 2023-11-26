@@ -24,7 +24,6 @@ const Login = () => {
     axios
       .post("http://localhost:3001/login", details)
       .then((res) => {
-        console.log("res--->", res, res.data.password);
         if (res.data.Login) {
           localStorage.setItem("username", res.data.username);
           localStorage.setItem("password", res.data.password);

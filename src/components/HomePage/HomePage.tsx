@@ -16,15 +16,10 @@ const Home = () => {
   useEffect(() => {
     setUsername(storedUsername || "");
     setPass(password || "");
-    console.log("username---->Homepage", username, "--", password);
 
     axios
       .get("http://localhost:3001/allcomplaintsList")
       .then((res) => {
-        console.log(
-          "res---> All ComplaintsList --admin",
-          res.data.complaintsData
-        );
         setAllComplaints(res.data.complaintsData);
       })
       .catch((err) => console.log(err));
@@ -50,7 +45,6 @@ const Home = () => {
         description: description,
       })
       .then((res) => {
-        console.log("Update --admin", res);
         setAllComplaints(res.data.complaintsData);
       })
       .catch((err) => console.log(err));
@@ -95,73 +89,81 @@ const Home = () => {
             disabled={username ? false : true}
             onClick={handleClick}
           >
-            Register a complaint
+            Register a Complaint / Feedback
           </button>
 
           <br />
           {!username && (
             <small style={{ color: "red", paddingLeft: "25px" }}>
-              Login to register a complaint...
+              Login to register a complaint / feedback...
             </small>
           )}
         </div>
       )}
       {username === "Admin" && pass === "Unccadmin2023" && (
         <>
-          <table className="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">No.</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Phone Number</th>
-                <th scope="col">Description</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {allComplaints?.map((data: any, index: number) => (
-                <tr key={index} onClick={() => openModal(data)}>
-                  <th scope="row">{index + 1}</th>
-                  <td>{data.name}</td>
-                  <td>{data.email}</td>
-                  <td>{data.phone}</td>
-                  <td className="text-truncate">{data.description}</td>
-                  <td
-                    style={{
-                      color: data?.status === "Pending" ? "orange" : "green",
-                    }}
-                  >
-                    {data.status === "Pending" ? (
-                      <AiFillMinusCircle />
-                    ) : (
-                      data.status
-                    )}
-                    {data.status === "Pending" && (
-                      <>
-                        <> | </>
-                        <GoCheckCircleFill
-                          style={{ color: "green" }}
-                          onClick={() =>
-                            addressComplaint(
-                              data.complaintId,
-                              data.email,
-                              data.name,
-                              data.description
-                            )
-                          }
-                        />
-                      </>
-                    )}
-                  </td>
+          {allComplaints ? (
+            <table className="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone Number</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Status</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {allComplaints?.map((data: any, index: number) => (
+                  <tr
+                    key={index}
+                    onClick={() => openModal(data)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <th scope="row">{index + 1}</th>
+                    <td>{data.name}</td>
+                    <td>{data.email}</td>
+                    <td>{data.phone}</td>
+                    <td className="text-truncate">{data.description}</td>
+                    <td
+                      style={{
+                        color: data?.status === "Pending" ? "orange" : "green",
+                      }}
+                    >
+                      {data.status === "Pending" ? (
+                        <AiFillMinusCircle />
+                      ) : (
+                        data.status
+                      )}
+                      {data.status === "Pending" && (
+                        <>
+                          <> | </>
+                          <GoCheckCircleFill
+                            style={{ color: "green" }}
+                            onClick={() =>
+                              addressComplaint(
+                                data.complaintId,
+                                data.email,
+                                data.name,
+                                data.description
+                              )
+                            }
+                          />
+                        </>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <div className="emptydiv"> The Complaint box is empty...</div>
+          )}
           <ModalDetails
             isSignupForm={false}
             isComplaintDetails={true}
-            header="Complaint Details"
+            header="Complaint / Feedback Details"
             data={data}
             isForm={isForm}
             showModal={showModal}

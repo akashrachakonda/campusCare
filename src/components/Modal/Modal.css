@@ -17,7 +17,6 @@
 .otp-button{
     margin-top: 10px !important;
     text-align: center;
-    /* margin-left: 230px  !important; */
     width: 100%;
     margin: 0 !important;
     
@@ -57,6 +56,7 @@
     margin-right: 20px;
 }   
 #contactform{
-    height: 40%;
+    height: 50%;
     text-align: center;
+    background-color: #E4F6E3;
 }

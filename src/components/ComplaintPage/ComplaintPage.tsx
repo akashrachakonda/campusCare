@@ -31,7 +31,6 @@ const Complaint = () => {
     axios
       .post("http://localhost:3001/complaintsList", params)
       .then((res) => {
-        console.log("res---> ComplaintsList", res);
         setPreComplaints(res.data.previousComplaints);
         setPrevCompData(res.data.complaints);
       })
@@ -44,20 +43,15 @@ const Complaint = () => {
     details["id"] = localStorage.getItem("id") || "";
     details["complaintId"] = Math.floor(Math.random() * 10000).toString();
 
-    console.log("details-->", details);
     axios
       .post("http://localhost:3001/complaints", details)
       .then((res) => {
-        console.log("res", res);
         setMessage("Your response has been submitted successfully. Thank you.");
         setShowModal(true);
         setIsForm(true);
         setNewComplaint(true);
-        // navigate("/");
       })
       .catch((err) => console.log(err));
-
-    // return alert("Your response has been submitted successfully. Thank you.");
   };
 
   const handleInput = (e: any) => {
@@ -84,12 +78,12 @@ const Complaint = () => {
             to={"/previousComplaint"}
             state={{ data: prevCompData }}
           >
-            Previous Complaints
+            Previous Complaints/Feebacks
           </Link>
         )}
       </div>
       <div className="complaintPage">
-        <h3 style={{ textAlign: "center" }}>Register a Complaint</h3>
+        <h3 style={{ textAlign: "center" }}>Register a Complaint/Feedback</h3>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name" className="name">
@@ -149,7 +143,7 @@ const Complaint = () => {
             ></textarea>
           </div>
           <button type="submit" className="btn btn-primary">
-            Submit Complaint
+            Submit
           </button>
         </form>
         <ModalDetails

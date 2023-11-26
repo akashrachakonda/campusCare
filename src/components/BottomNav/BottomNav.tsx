@@ -16,7 +16,11 @@ const BottomNav = () => {
       <nav className="navbar navbar-light">
         <ul className="navbar-nav">
           <li className="navli" id="contact">
-            <a className="nav-link" onClick={openModal}>
+            <a
+              className="nav-link"
+              onClick={openModal}
+              style={{ cursor: "pointer" }}
+            >
               Contact
             </a>
           </li>
@@ -28,6 +32,7 @@ const BottomNav = () => {
               className="nav-link"
               target="_blank"
               rel="noopener noreferrer"
+              style={{ cursor: "pointer" }}
             >
               <FaGithub />
             </a>
