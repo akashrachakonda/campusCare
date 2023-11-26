@@ -19,4 +19,4 @@ CampusCare is a dynamic and user-friendly website designed to address and resolv
 <img width="748" alt="Screenshot 2023-11-25 at 6 41 25 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/915796dc-dcb7-494d-9ca6-7cf699394847">
 <img width="748" alt="Screenshot 2023-11-25 at 6 41 30 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/8bacebab-b06e-47fc-bc3b-2619036a4854">
 <img width="748" alt="Screenshot 2023-11-25 at 6 41 45 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/b4840ba1-a027-43b6-8959-c996749a268c">
-
+<img width="1144" alt="Screenshot 2023-11-25 at 9 14 07 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/07338a12-9f94-42bc-a55b-8f5810344551">
