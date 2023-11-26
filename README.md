@@ -8,7 +8,7 @@ CampusCare is a dynamic and user-friendly website designed to address and resolv
 <img width="775" alt="Screenshot 2023-11-25 at 6 27 30 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/c11b1352-2c05-4c2e-bc9c-3e637c48cb02">
 <img width="775" alt="Screenshot 2023-11-25 at 6 28 30 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/bb9e1169-dbc5-4feb-b321-8c1bb37d29ed">
 <img width="1157" alt="Screenshot 2023-11-25 at 6 29 17 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/594bf173-8a69-4f34-9d23-c7820a4130c5">
-<img width="1157" alt="Screenshot 2023-11-25 at 6 29 44 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/3452ea09-a701-4c4c-b300-b4ac6eb3ace9">
+<img width="748" alt="Screenshot 2023-11-25 at 7 07 17 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/6a443897-0783-4991-adb8-e951e8a31a59">
 <img width="748" alt="Screenshot 2023-11-25 at 6 30 31 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/63378202-a316-410a-b771-ab22a7f75907">
 <img width="748" alt="Screenshot 2023-11-25 at 6 30 41 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/dae44452-21c8-457c-9633-4c0ebe0d92ce">
 <img width="748" alt="Screenshot 2023-11-25 at 6 30 48 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/ef975b08-4869-4cad-9a30-0a5d542d94b3">
@@ -19,3 +19,4 @@ CampusCare is a dynamic and user-friendly website designed to address and resolv
 <img width="748" alt="Screenshot 2023-11-25 at 6 41 25 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/915796dc-dcb7-494d-9ca6-7cf699394847">
 <img width="748" alt="Screenshot 2023-11-25 at 6 41 30 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/8bacebab-b06e-47fc-bc3b-2619036a4854">
 <img width="748" alt="Screenshot 2023-11-25 at 6 41 45 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/b4840ba1-a027-43b6-8959-c996749a268c">
+
