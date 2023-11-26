@@ -1,4 +1,4 @@
-# campusCare
+ # campusCare
 CampusCare is a dynamic and user-friendly website designed to address and resolve student concerns effectively within our college community.
 
 
@@ -7,7 +7,7 @@ CampusCare is a dynamic and user-friendly website designed to address and resolv
 <img width="775" alt="Screenshot 2023-11-25 at 6 27 19 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/444886ac-6d74-4fa2-b79b-10e0970c3fc8">
 <img width="775" alt="Screenshot 2023-11-25 at 6 27 30 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/c11b1352-2c05-4c2e-bc9c-3e637c48cb02">
 <img width="775" alt="Screenshot 2023-11-25 at 6 28 30 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/bb9e1169-dbc5-4feb-b321-8c1bb37d29ed">
-<img width="1157" alt="Screenshot 2023-11-25 at 6 29 17 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/594bf173-8a69-4f34-9d23-c7820a4130c5">
+<img width="1157" alt="Screenshot 2023-11-25 at 6 29 17 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/c0ae6ba2-041f-44a8-91cb-ae7ad3b5ccd7">
 <img width="748" alt="Screenshot 2023-11-25 at 7 07 17 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/6a443897-0783-4991-adb8-e951e8a31a59">
 <img width="748" alt="Screenshot 2023-11-25 at 6 30 31 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/63378202-a316-410a-b771-ab22a7f75907">
 <img width="748" alt="Screenshot 2023-11-25 at 6 30 41 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/dae44452-21c8-457c-9633-4c0ebe0d92ce">
