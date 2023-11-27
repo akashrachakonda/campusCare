@@ -36,21 +36,21 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: "akashrachakonda1998@gmail.com",
-    pass: "odsj nqpb ibog qnpi",
+    user: "campuscareuncc@gmail.com",
+    pass: "czmb tntr xetw sikt",
   },
 });
 
 const emailFunction = async (email, name, otp) => {
   const info = await transporter.sendMail({
-    from: '"CampusCare" akashrachakonda1998@gmail.com',
-    to: email || "akashrachakonda1998@gmail.com",
+    from: '"CampusCare" campuscareuncc@gmail.com',
+    to: email || "campuscareuncc@gmail.com",
     subject: "OTP For CampusCare Account Verification",
     html: `
     <div style="font-family: Arial, sans-serif; text-align: center;">
       <p>Dear ${name},</p>
       <p>Please enter this code to verify your email</p>
-      <h2 style="color: #004525; font-size: 20px; margin: 10px 0;">${otp}</h2>
+      <h2 style="color: #004525; font-size: 24px; margin: 10px 0;">${otp}</h2>
       <p>If it wasn't you, Please ignore it or call CampusCare customer care.</p>
       <br />
       <p>Regards,</p>
@@ -62,16 +62,38 @@ const emailFunction = async (email, name, otp) => {
   return info.accepted;
 };
 
+const complaintRaisedinfo = async ( name, description) => {
+  const info = await transporter.sendMail({
+    from: '"CampusCare" campuscareuncc@gmail.com',
+    to: "campuscareuncc@gmail.com",
+    subject: "New Concern Reported. - CampuCare",
+    html: `
+  <div style="font-family: Arial, sans-serif; text-align: center;">
+    <p>Dear Admin,</p>
+    <p>A new concern has been raised by ${name}.</p>
+    <h3 style="color: #FF0000; font-size: 18px;">Description Of Concern </h3>
+    <h2 style="color: #F76E6E; font-size: 18px; margin-bottom: 10px;"> ${description}</h2>
+    <p>Kindly attend to the raised issue at your earliest convenience.</p>
+    <br />
+    <p>Regards,</p>
+    <p>CampusCare Team</p>
+  </div>
+`,
+  });
+  return info.accepted;
+};
+
+
 const complaintAddresedinfo = async (email, name, description) => {
   const info = await transporter.sendMail({
-    from: '"CampusCare" akashrachakonda1998@gmail.com',
-    to: email || "akashrachakonda1998@gmail.com",
+    from: '"CampusCare" campuscareuncc@gmail.com',
+    to: email || "campuscareuncc@gmail.com",
     subject: "Complaint Addressed - CampuCare",
     html: `
   <div style="font-family: Arial, sans-serif; text-align: center;">
     <p>Dear ${name},</p>
     <p>The concern you raised has been resolved.</p>
-    <h2 style="color: #004525; font-size: 24px; margin: 10px 0;">Description : ${description}</h2>
+    <h2 style="color: #004525; font-size: 18px; margin: 10px 0;">Description : ${description}</h2>
     <p>If it wasn't raised by you, Please call CampusCare customer service.</p>
     <br />
     <p>Regards,</p>
@@ -82,7 +104,6 @@ const complaintAddresedinfo = async (email, name, description) => {
   return info.accepted;
 };
 
-//emailFunction().catch(console.error);
 
 const db = mysql.createConnection({
   host: "b7fkvgitknn65orrpbar-mysql.services.clever-cloud.com",
@@ -163,6 +184,7 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/complaints", async (req, res) => {
+  complaintRaisedinfo(req.body.name,req.body.description);
   const sql =
     "INSERT INTO complaints(`name`,`email`,`phone`, `description`,`id`,`status`,`complaintId`) VALUES(?)";
   const values = [
