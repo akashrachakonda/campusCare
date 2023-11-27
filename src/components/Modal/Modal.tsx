@@ -173,7 +173,7 @@ const ModalDetails = (props: {
           <>
             <div className="info-container" id="contactform">
               <h5>
-                <b>campucareuncc@gmail.com</b>
+                <b>campuscareuncc@gmail.com</b>
               </h5>
               <h5>
                 <b>+1 (987)-654-3210</b>
