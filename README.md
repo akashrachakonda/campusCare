@@ -25,6 +25,7 @@
 <img width="1470" alt="Screenshot 2023-11-26 at 3 37 49 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/565d8fe7-e4ba-4623-86d3-33147e064b8c">
 <img width="1470" alt="Screenshot 2023-11-26 at 3 39 06 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/ac24c7b8-49c1-4d07-96d4-e23a08690abe">
 <img width="1470" alt="Screenshot 2023-11-26 at 3 39 11 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/66a48ce5-3592-484c-96c6-b70f4b15f83a">
+<img width="1161" alt="Screenshot 2023-11-27 at 12 29 01 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/c9578252-a918-4c11-aa87-8ec37cb8c84c">
 <img width="1470" alt="Screenshot 2023-11-26 at 3 39 22 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/6f0475dc-4c2b-42a8-bdea-4d88864cc75a">
 <img width="1470" alt="Screenshot 2023-11-26 at 3 39 55 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/80a5f9d0-7c35-4ae9-b926-225ad33033dc">
 <img width="1141" alt="Screenshot 2023-11-26 at 3 40 24 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/c3664567-f55e-4f64-bc4a-4d111bd6988f">
