@@ -197,7 +197,7 @@ app.put("/update", async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(" Listening");
+  console.log("Server is Listening in port 3001");
 });
 
 export { emailFunction };

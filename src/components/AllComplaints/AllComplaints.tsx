@@ -26,9 +26,6 @@ const AllComplaints = () => {
     setIsForm(false);
   };
 
-  // const closeModal = () => {
-  //   setShowModal(false);
-  // };
   const appRootElement = document.getElementById("root");
 
   if (appRootElement) {
@@ -54,7 +51,7 @@ const AllComplaints = () => {
       <Link type="button" className="btn btn-primary btn-sm " to={"/complaint"}>
         Back
       </Link>
-      <h3 className="tableLabel">Previous Complaints/Feedbacks list</h3>
+      <h3 className="tableLabel">Previous Complaints / Feedbacks list</h3>
       <table className="table table-hover">
         <thead className="thead-dark">
           <tr>

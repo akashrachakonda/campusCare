@@ -1,8 +1,16 @@
- # campusCare
+# campusCare
+
 CampusCare is a dynamic and user-friendly website designed to address and resolve student concerns effectively within our college community.
 
+---
 
+1. Download the project from GitHub using the provided link.
+2. Execute "npm i" in a terminal after moving to the main folder (campucare folder).
+3. In the same terminal, initiate "npm run dev."
+4. Launch a new terminal, go to the "src folder," and execute "node server.js."
+5. Access your browser and enter "http://localhost:5173/."
 
+---
 
 <img width="1470" alt="Screenshot 2023-11-26 at 3 33 55 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/a89716bb-b3d2-4249-8f09-55ac32626da5">
 <img width="1470" alt="Screenshot 2023-11-26 at 3 34 05 PM" src="https://github.com/akashrachakonda/campusCare/assets/44474105/96c8e018-70f6-4d38-a17c-ff5c87130a7f">

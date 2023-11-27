@@ -83,7 +83,7 @@ const Complaint = () => {
         )}
       </div>
       <div className="complaintPage">
-        <h3 style={{ textAlign: "center" }}>Register a Complaint/Feedback</h3>
+        <h3 style={{ textAlign: "center" }}>Register a Complaint / Feedback</h3>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name" className="name">
