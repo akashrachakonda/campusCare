@@ -46,7 +46,6 @@ const emailFunction = async (email, name, otp) => {
     from: '"CampusCare" akashrachakonda1998@gmail.com',
     to: email || "akashrachakonda1998@gmail.com",
     subject: "OTP For CampusCare Account Verification",
-    //text: "Hello Mr.Teja, this is regarding Campuscare email Verification.",
     html: `
     <div style="font-family: Arial, sans-serif; text-align: center;">
       <p>Dear ${name},</p>
@@ -68,7 +67,6 @@ const complaintAddresedinfo = async (email, name, description) => {
     from: '"CampusCare" akashrachakonda1998@gmail.com',
     to: email || "akashrachakonda1998@gmail.com",
     subject: "Complaint Addressed - CampuCare",
-    //text: "Hello Mr.Teja, this is regarding Campuscare email Verification.",
     html: `
   <div style="font-family: Arial, sans-serif; text-align: center;">
     <p>Dear ${name},</p>

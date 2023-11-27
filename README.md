@@ -1,6 +1,6 @@
 # campusCare
 
-CampusCare is a dynamic and user-friendly website designed to address and resolve student concerns effectively within our college community.
+"CampusCare" is a dynamic and user-friendly website designed to address and resolve student concerns effectively within our college community. This innovative platform offers students a convenient and transparent way to voice their complaints, feedback, and suggestions, fostering a more inclusive and responsive campus environment.
 
 ---
 
